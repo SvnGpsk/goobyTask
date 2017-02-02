@@ -1,0 +1,353 @@
+/*Allgemein*/
+ul {
+	list-style: none;
+}
+
+/*Login*/
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+h1 {
+	color: white;
+	margin-left: 30px;
+	font-family: "Roboto", sans-serif;
+}
+h2 {
+	color: white;
+	margin-left: 50px;
+	font-family: "Roboto", sans-serif;
+}
+#groupsheader{
+		margin-left: 50px;
+}
+
+.login-page {
+	width: 360px;
+	padding: 8% 0 0;
+	margin: auto;
+}
+
+.form {
+	position: relative;
+	z-index: 1;
+	background: #FFFFFF;
+	max-width: 360px;
+	margin: 0 auto 100px;
+	padding: 45px;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0
+		rgba(0, 0, 0, 0.24);
+}
+
+input[type=radio], input.radio {
+	float: left;
+	margin: 2px 0 0 2px;
+	height: 20px;
+	width: 20%;
+}
+
+.form p {
+	text-align: left;
+}
+
+.form input[type=text], .form input[type=password] {
+	font-family: "Roboto", sans-serif;
+	outline: 0;
+	background: #f2f2f2;
+	width: 100%;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+.form button {
+	font-family: "Roboto", sans-serif;
+	text-transform: uppercase;
+	outline: 0;
+	background: #4CAF50;
+	width: 100%;
+	border: 0;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	-webkit-transition: all 0.3 ease;
+	transition: all 0.3 ease;
+	cursor: pointer;
+}
+
+.form button:hover, .form button:active, .form button:focus {
+	background: #43A047;
+}
+
+.form .message {
+	margin: 15px 0 0;
+	color: #b3b3b3;
+	font-size: 12px;
+}
+
+.form .message a {
+	color: #4CAF50;
+	text-decoration: none;
+}
+
+.form .register-form {
+	display: none;
+}
+
+.container {
+	position: relative;
+	z-index: 1;
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+.container:before, .container:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.container .info {
+	margin: 50px auto;
+	text-align: center;
+}
+
+.container .info h1 {
+	margin: 0 0 15px;
+	padding: 0;
+	font-size: 36px;
+	font-weight: 300;
+	color: #1a1a1a;
+}
+
+.container .info span {
+	color: #4d4d4d;
+	font-size: 12px;
+}
+
+.container .info span a {
+	color: #000000;
+	text-decoration: none;
+}
+
+.container .info span .fa {
+	color: #EF3B3A;
+}
+
+body {
+	background: #76b852;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+	background: -moz-linear-gradient(right, #76b852, #8DC26F);
+	background: -o-linear-gradient(right, #76b852, #8DC26F);
+	background: linear-gradient(to left, #76b852, #8DC26F);
+	font-family: "Roboto", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/*Groups*/
+.welcome {
+	margin-left: 15px;
+}
+
+.group-list {
+	width: auto;
+}
+
+.group {
+	position: relative;
+	float: left;
+	z-index: 1;
+	background: #FFFFFF;
+	width: 320px;
+	height: 60px;
+	margin: 0 15px 15px;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0
+		rgba(0, 0, 0, 0.24);
+}
+
+.group-link {
+	display: block;
+	font-family: "Roboto", sans-serif;
+	text-decoration: none;
+	color: black;
+	height: 60px;
+	width: 320px;
+}
+
+.lightbox_trigger {
+	display: block;
+	font-family: "Roboto", sans-serif;
+	text-decoration: none;
+	color: black;
+	height: 60px;
+	width: 320px;
+}
+
+.group-name {
+	text-align: center;
+	margin: 0 0 15px 0;
+	padding: 25px 15px 5px 15px;
+}
+
+.group-plus {
+	text-align: center;
+	margin: 0 0 15px 0;
+}
+
+#add-group {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+#add-group-li {
+	padding: 15px 0 0 0;
+	height: 45px;
+}
+
+#add-group-li:hover {
+	cursor: pointer;
+}
+
+.group:hover {
+	background: #F2F2F2;
+}
+
+/*Lightbox*/
+#lightbox, #lightbox-task, #lightbox-user {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	display: none;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 1000;
+}
+
+#box {
+	top: 200px;
+}
+
+#close-lightbox, #close-lightbox-task, #close-lightbox-user {
+	float: right;
+	margin: -35px -35px 10px 0;
+	width: 20px;
+	height: 20px;
+	padding: 2px 2px 0 0;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0
+		rgba(0, 0, 0, 0.24);
+	background: #EB7070;
+	color: black;
+}
+
+#close-lightbox:hover, #close-lightbox-task:hover, #close-lightbox-user:hover
+	{
+	cursor: pointer;
+}
+
+.dropdown {
+	margin-bottom: 50px;
+}
+
+#btn-todo, #btn-inprogress, #btn-check, #btn-done {
+	padding: 15px 5px 15px 5px;
+	font-size: 9px;
+	color: white;
+}
+
+#create-task {
+	margin-top: 20px;
+}
+
+#box-task {
+	top: 200px;
+}
+
+#update-task {
+	margin: 20px 10px 0 0;
+}
+
+/*Task*/
+.task-list {
+	width: 100%;
+}
+
+#add-task, #add-user {
+	float: left;
+	font-family: "Roboto", sans-serif;
+	position: relative;
+	z-index: 1;
+	background: #FFFFFF;
+	width: 200px;
+	height: 30px;
+	margin: 20px 15px 15px 40px;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0
+		rgba(0, 0, 0, 0.24);
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	padding: 5px 0 0 0;
+	color: #335F44;
+}
+
+#to-do-div, #in-progress-div, #check-div, #done-div {
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0
+		rgba(0, 0, 0, 0.24);
+	height: 100%;
+}
+
+#to-do-div {
+	background: #BDBDBD;
+}
+
+#in-progress-div {
+	background: #4EC5FF;
+}
+
+#check-div {
+	background: #B04EFF;
+}
+
+#done-div {
+	background: #45EB4D;
+}
+
+.task-name {
+	font-weight: bold;
+	margin: 0 0 -5px 0;
+	cursor: pointer;
+}
+
+.taskboardueberschrift {
+	margin-left: 0;
+}
+
+#backlink {
+	float: left;
+	position: relative;
+	margin-left: 10px;
+	margin-right:10px;
+	font-size: 30px;
+	color:white;
+}
+#backlink:hover {
+	text-decoration:none;
+	color:light-grey;
+}
+#backlink:visited {
+	color:white;
+}
+.delete-task-x{
+	float:right;
+	padding:0 3px 0 3px;
+}
+.delete-task-x:hover{
+	cursor:pointer;
+	color:white;	
+}
