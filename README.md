@@ -1,7 +1,7 @@
 # goobyTask
 A simple kanban-board webservice, based on Java servlet technology.
 
-Setup: 
+# Setup: 
 1. Start your database
 2. Create a new table called users
 3. Import SETUP_DB.sql
