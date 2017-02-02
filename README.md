@@ -1,6 +1,8 @@
 # goobyTask
 A simple kanban-board webservice, based on Java servlet technology.
 
+![Screenshot Gooby Task](./gooby.PNG?raw=true "GoobyTask")
+
 # Setup: 
 1. Start your database (e.g. mySQL)
 2. Create a new database called goobytask
