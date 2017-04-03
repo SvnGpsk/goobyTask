@@ -2,6 +2,7 @@ package de.bs14.Webservice.resources;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -14,6 +15,8 @@ import javax.ws.rs.POST;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.bs14.Webservice.model.Group;
+import de.bs14.Webservice.model.Task;
 import de.bs14.Webservice.resources.db.DBConnection;
 
 public class ModifyTaskServlet extends HttpServlet {
@@ -39,8 +42,51 @@ public class ModifyTaskServlet extends HttpServlet {
 			logger.error("Fehler beim bearbeiten der Aufgabe.");
 		}
 		
-		ServletContext context = getServletContext();
-		RequestDispatcher dispatcher = context.getRequestDispatcher("/taskboard");
-		dispatcher.forward(request, response);
+		doGet(request, response);
 	}
+	/**
+	 * Verarbeitet GET-Requests auf /createtask, indem an das Task-Board
+	 * weitergeleitet wird.
+	 */
+	@Override
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+		Group group = (Group) request.getSession().getAttribute("groupobject");
+		ArrayList<Task> allTasks = null;
+		ArrayList<Task> todoTasks = new ArrayList<Task>();
+		ArrayList<Task> inprogressTasks = new ArrayList<Task>();
+		ArrayList<Task> checkTasks = new ArrayList<Task>();
+		ArrayList<Task> doneTasks = new ArrayList<Task>();
+
+		try {
+			allTasks = dbClient.getTasksFromGroup(group);
+		} catch (SQLException e) {
+			logger.error("Fehler beim Lesen der Aufgaben der Gruppe.");
+		}
+		for (Task task : allTasks) {
+			if (task.getTaskstate().equals("todo")) {
+				todoTasks.add(task);
+			}
+			if (task.getTaskstate().equals("inprogress")) {
+				inprogressTasks.add(task);
+			}
+			if (task.getTaskstate().equals("check")) {
+				checkTasks.add(task);
+			}
+			if (task.getTaskstate().equals("done")) {
+				doneTasks.add(task);
+			}
+		}
+
+		request.getSession().setAttribute("todoTaskList", todoTasks);
+		request.getSession()
+				.setAttribute("inprogressTaskList", inprogressTasks);
+		request.getSession().setAttribute("checkTaskList", checkTasks);
+		request.getSession().setAttribute("doneTaskList", doneTasks);
+
+		request.getRequestDispatcher("/WEB-INF/taskboard.jsp").forward(request,
+				response);
+	}
+
 }

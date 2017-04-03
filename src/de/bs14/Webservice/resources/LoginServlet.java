@@ -74,7 +74,6 @@ public class LoginServlet extends HttpServlet {
 				try {
 					user = dbclient.getUserFromDbByUsername(username);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					logger.error("Fehler beim Abfragen des USers aus der DB.");
 				}
 				user.setSessionId(sessionId);

@@ -72,7 +72,6 @@ public class RegisterServlet extends HttpServlet {
 	 * @return
 	 */
 	private int registerUser(String username, String pwd, String email) {
-		System.out.println("Inside checkCredentials");
 		int result = 3;
 		if (Utility.isNotNull(username) && Utility.isNotNull(pwd)) {
 			try {

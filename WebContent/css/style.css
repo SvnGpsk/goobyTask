@@ -5,25 +5,35 @@ ul {
 
 /*Login*/
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+#heading-login{
+	color: white;
+	margin: 200px 0 0 0;
+	font-family: "Roboto", sans-serif;
+	text-align:center;
+	font-size: 46px;
+}
 
 h1 {
 	color: white;
-	margin-left: 30px;
+	margin-left: 50px;
+	font-size:36px;
 	font-family: "Roboto", sans-serif;
+	font-weight:bold;
 }
 h2 {
 	color: white;
 	margin-left: 50px;
 	font-family: "Roboto", sans-serif;
 }
-#groupsheader{
-		margin-left: 50px;
+
+.group-page{
+	margin:0;
 }
 
 .login-page {
 	width: 360px;
 	padding: 8% 0 0;
-	margin: auto;
+	margin: -50px auto 0px auto;
 }
 
 .form {
@@ -136,6 +146,8 @@ input[type=radio], input.radio {
 }
 
 body {
+	margin:0;
+	padding:0;
 	background: #76b852;
 	/* fallback for old browsers */
 	background: -webkit-linear-gradient(right, #76b852, #8DC26F);
@@ -273,6 +285,14 @@ body {
 }
 
 /*Task*/
+.droppable {
+	padding:0;
+}
+
+.draggable{
+	z-index:1000;
+}
+
 .task-list {
 	width: 100%;
 }
@@ -325,7 +345,9 @@ body {
 }
 
 .taskboardueberschrift {
-	margin-left: 0;
+	margin-left: 15px;
+	margin-right: 15px;
+	border-bottom: solid 2px white;
 }
 
 #backlink {

@@ -1,5 +1,30 @@
 $(document).ready(function () {
 	var taskid;
+	$('.task').draggable({
+		  snap: ".droppable",
+	      snapMode: "inner",
+	      revert: 'invalid'
+	});
+	$('.droppable').droppable({
+	    tolerance: "pointer",
+	    greedy: true,
+        drop: function(event, ui) {
+        	 ui.draggable.detach().appendTo($(this).find('ul'));
+        	 var taskId = $(ui.draggable).attr("id").substring(5);
+        	 console.log($(this));
+        	 var newState = $(this).attr("name");
+             postModify(taskId, newState)
+        },
+        activate: function() {
+            $('.droppable').css({
+            	border:"3px outset #FFF"
+            });
+        },
+        deactivate: function() {
+            $('.droppable').css("border", "").css("background-color", "");
+        }
+    });
+	
     /*Lightbox neue Task*/
     $('#add-task').click(function () {
         document.getElementById('aufgabe').value = "";
@@ -7,7 +32,7 @@ $(document).ready(function () {
         $('#lightbox').show();
     });
 
-    $('#close-lightbox').live('click', function () {
+    $('body').on('click','#close-lightbox', function () {
         $('#lightbox').hide();
     });
 
@@ -17,7 +42,7 @@ $(document).ready(function () {
         $('#lightbox-user').show();
     });
 
-    $('#close-lightbox-user').live('click', function () {
+    $('body').on('click','#close-lightbox-user', function () {
         $('#lightbox-user').hide();
     });
 
@@ -56,13 +81,13 @@ $(document).ready(function () {
     
 
     /*Lightbox Update Task*/
-    $('.task-name').click(function () {
-        $('#lightbox-task').show();
-    });
+//    $('.task-name').click(function () {
+//        $('#lightbox-task').show();
+//    });
 
-    $('#close-lightbox-task').live('click', function () {
-        $('#lightbox-task').hide();
-    });
+    $('body').on('click', '#close-lightbox-task', function(){
+    	$('#lightbox-task').hide();
+    })
 
     $('.task').click(function (e) {
         e.preventDefault();
@@ -83,7 +108,6 @@ $(document).ready(function () {
         e.preventDefault();
         var newState = $(this).attr("name");
         newState = newState.substring(0,(newState.length-6));
-        alert
         postModify(taskid,newState);
         $('#lightbox').hide();
     });
@@ -104,7 +128,7 @@ $(document).ready(function () {
     
 });
 
-function postModify(parameters1, parameters2) {
+function postModify(taskId, newState) {
 	var form = $('<form></form>');
 
 	form.attr("method", "post");
@@ -114,13 +138,13 @@ function postModify(parameters1, parameters2) {
 	var key1 = "taskidModified";
 	field1.attr("type", "hidden");
 	field1.attr("name", key1);
-	field1.attr("value", parameters1);
+	field1.attr("value", taskId);
 	
 	var field2 = $('<input></input>');
 	var key2 = "taskstateModified";
 	field2.attr("type", "hidden");
 	field2.attr("name", key2);
-	field2.attr("value", parameters2);
+	field2.attr("value", newState);
 	
 	form.append(field1);
 	form.append(field2);
@@ -129,3 +153,5 @@ function postModify(parameters1, parameters2) {
 	$(document.body).append(form);
 	form.submit();
 }
+
+

@@ -3,7 +3,7 @@ package de.bs14.Webservice.resources.db;
 /**
  * 
  * @author it4-gapssv
- *	Konstanten fÃ¼r die Verbindung zu Datenbank.
+ *	Konstanten für die Verbindung zu Datenbank.
  */
 public class Constants {
   public static String dbClass = "com.mysql.jdbc.Driver";
